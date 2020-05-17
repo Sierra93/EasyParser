@@ -10,7 +10,7 @@ namespace EasyParser {
             string str = wc.DownloadString(url);
             HtmlAgilityPack.HtmlDocument htmlDocument = new HtmlAgilityPack.HtmlDocument();
             htmlDocument.LoadHtml(str);
-            var result = htmlDocument.DocumentNode.SelectNodes("//li").Select(el => el.InnerText);
+            string[] result = htmlDocument.DocumentNode.SelectNodes("//li").Select(el => el.InnerText).ToArray();
 
             Console.ReadKey();
         }
